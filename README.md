@@ -13,5 +13,5 @@ https://www.qualiservice.org
 
 # Requirements
 
-* Java 11 or above
+* Oracle Java 8 with bundled JavaFX, download from https://java.com/en/download/
 * Windows, MacOS, or Linux
