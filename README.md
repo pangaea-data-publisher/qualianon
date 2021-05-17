@@ -15,3 +15,7 @@ https://www.qualiservice.org
 
 * Oracle Java 8 with bundled JavaFX, download from https://java.com/en/download/
 * Windows, MacOS, or Linux
+
+# Download
+
+Download the lastest release from the "Release" section at https://github.com/pangaea-data-publisher/qualianon/releases
