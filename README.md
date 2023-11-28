@@ -5,6 +5,8 @@ Qualiservice tool for anonymizing text data
 
 https://www.qualiservice.org
 
+If you have any questions regarding the use of QualiAnon for your research project, please send us an email to: qualianon@uni-bremen.de 
+
 
 # Documentation
 
