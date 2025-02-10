@@ -8,21 +8,18 @@ https://www.qualiservice.org
 If you have any questions regarding the use of QualiAnon for your research project, please send us an email to: qualianon@uni-bremen.de 
 
 
-# Documentation
+## Documentation
 
 * User manual: https://docs.google.com/document/d/1fLLYvsgXjh_p9p_E1fhikkIPQb19VUiltbRgaWQoD-M/edit?usp=sharing
 
+## Installation + Requirements
+[Wiki - Installation instructions](https://github.com/pangaea-data-publisher/qualianon/wiki/Installation-Instructions)
 
-# Requirements
-
-* Oracle Java 8 with bundled JavaFX, download from https://java.com/en/download/
-* Windows, MacOS, or Linux
-
-# Download
+## Download
 
 Download the lastest release from the "Release" section at https://github.com/pangaea-data-publisher/qualianon/releases
 
-# Citation
+## Citation
 
 Use the following citation to reference QualiAnon in your works:
 
