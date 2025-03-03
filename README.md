@@ -23,7 +23,7 @@ Download the lastest release from the "Release" section at https://github.com/pa
 
 Use the following citation to reference QualiAnon in your works:
 
-Tom Nicolai, Kati Mozygemba, Susanne Kretzer, Betina Hollstein (2021): QualiAnon - Qualiservice tool for anonymizing text data (version 1.0.1). Qualiservice. University of Bremen. Software available at: https://github.com/pangaea-data-publisher/qualianon
+Tom Nicolai, Kati Mozygemba, Susanne Kretzer, Betina Hollstein, Egor Gordeev (2025): QualiAnon - Qualiservice tool for anonymizing text data (version 1.5.0). Qualiservice. University of Bremen. Software available at: https://github.com/pangaea-data-publisher/qualianon
 
 ## Disclaimer
 
