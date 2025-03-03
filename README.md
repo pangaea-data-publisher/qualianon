@@ -25,6 +25,10 @@ Use the following citation to reference QualiAnon in your works:
 
 Tom Nicolai, Kati Mozygemba, Susanne Kretzer, Betina Hollstein, Egor Gordeev (2025): QualiAnon - Qualiservice tool for anonymizing text data (version 1.5.0). Qualiservice. University of Bremen. Software available at: https://github.com/pangaea-data-publisher/qualianon
 
+## Acknowledgement
+
+The technical implementation of the first version of QualiAnon was carried out by Qualiservice in cooperation with Prof. Dr Jürgen Pfeffer, Dr Mirco Schönfeld and Wienke Strathern (Chair of Computational Social Science at the Technical University of Munich and the Munich School of Public Policy, PANGAEA). Based on this version, QualiAnon was further developed technically by Dr Tom Nicolai (PANGAEA).  
+
 ## Disclaimer
 
 #### Disclaimer of Warranty.
