@@ -14,6 +14,9 @@ If you have any questions regarding the use of QualiAnon for your research proje
 
 ## Installation + Requirements
 [Wiki - Installation instructions](https://github.com/pangaea-data-publisher/qualianon/wiki/Installation-Instructions)
+### System Requirements
+[Wiki - System Requirements](https://github.com/pangaea-data-publisher/qualianon/wiki/System-Requirements)
+
 
 ## Download
 
