@@ -1,2 +1,12 @@
 .idea
 *.iml
+target
+dependency-reduced-pom.xml
+.DS_Store
+BasicSyntaxTest.java
+fromSusanna/
+Projects/
+auditfile.txt
+*.docx
+*.swp
+
