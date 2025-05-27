@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ClaML SYSTEM "ClaML.dtd">
+<ClaML version="2.0.0">
+	<Title>claml-example</Title>
+	<Class code="1">
+		<SubClass code="2"/>
+		<Rubric kind="preferred">
+			<Label>Text 1</Label>
+		</Rubric>
+	</Class>
+	<Class code="2">
+		<SuperClass code="1"/>
+		<SubClass code="3"/>
+		<Rubric kind="preferred">
+			<Label>Text 2</Label>
+		</Rubric>
+	</Class>
+	<Class code="3">
+		<SuperClass code="2"/>
+		<Rubric kind="preferred">
+			<Label>Text 3</Label>
+		</Rubric>
+	</Class>
+	<Class code="4">
+		<SuperClass code="1"/>
+		<Rubric kind="preferred">
+			<Label>Text 4</Label>
+		</Rubric>
+	</Class>
+</ClaML>
