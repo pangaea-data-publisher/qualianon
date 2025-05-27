@@ -32,6 +32,24 @@ Tom Nicolai, Kati Mozygemba, Susanne Kretzer, Betina Hollstein, Egor Gordeev (20
 
 The technical implementation of the first version of QualiAnon was carried out by Qualiservice in cooperation with Prof. Dr Jürgen Pfeffer, Dr Mirco Schönfeld and Wienke Strathern (Chair of Computational Social Science at the Technical University of Munich and the Munich School of Public Policy, PANGAEA). Based on this version, QualiAnon was further developed technically by Dr Tom Nicolai (PANGAEA).  
 
+## Run
+
+```shell script
+mvn clean javafx:run
+```
+
+## Test
+```shell script
+mvn clean test
+```
+
+## Build jar for distribution
+
+```shell script
+mvn clean package
+```
+Builds a fat jar in the "target" folder, javafx is bundled for windows, mac and linux. 
+
 ## Disclaimer
 
 #### Disclaimer of Warranty.
