@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Claset PUBLIC "-//EUROSTAT EG6 WG3//CLASET//EN" "http://ec.europa.eu/eurostat/ramon/claset/clasetxml.dtd">
+<Claset reference="CL_ISCO08">
+	<Classification id="CL_ISCO08" type="Classification">
+		<Label qualifier="Usual">
+			<LabelText language="DE">ISCO example file</LabelText>
+		</Label>
+		<Property name="Comment" dataType="AN">
+			<PropertyQualifier name="PlainText" language="DE">
+				<PropertyText type="Content">ISCO example file</PropertyText>
+			</PropertyQualifier>
+		</Property>
+		<Level id="1" nbItems="5">
+		</Level>
+		<Item id="10" idLevel="1">
+			<Label qualifier="Usual">
+				<LabelText language="DE">Intro text</LabelText>
+			</Label>
+		</Item>
+		<Item id="20" idLevel="1">
+			<Label qualifier="Usual">
+				<LabelText language="ALL">TOTAL</LabelText>
+			</Label>
+			<Label qualifier="Usual">
+				<LabelText language="DE">Insgesamt</LabelText>
+			</Label>
+		</Item>
+		<Item id="50" idLevel="1">
+			<Label qualifier="Usual">
+				<LabelText language="ALL">OC1</LabelText>
+			</Label>
+			<Label qualifier="Usual">
+				<LabelText language="DE">Text 1</LabelText>
+			</Label>
+		</Item>
+		<Item id="60" idLevel="2">
+			<Label qualifier="Usual">
+				<LabelText language="ALL">OC11</LabelText>
+			</Label>
+			<Label qualifier="Usual">
+				<LabelText language="DE">Text 2</LabelText>
+			</Label>
+		</Item>
+		<Item id="70" idLevel="3">
+			<Label qualifier="Usual">
+				<LabelText language="ALL">OC111</LabelText>
+			</Label>
+			<Label qualifier="Usual">
+				<LabelText language="DE">Text 3</LabelText>
+			</Label>
+		</Item>
+		<Item id="80" idLevel="4">
+			<Label qualifier="Usual">
+				<LabelText language="ALL">OC1111</LabelText>
+			</Label>
+			<Label qualifier="Usual">
+				<LabelText language="DE">Text 4</LabelText>
+			</Label>
+		</Item>
+		<Item id="90" idLevel="3">
+			<Label qualifier="Usual">
+				<LabelText language="ALL">OC1112</LabelText>
+			</Label>
+			<Label qualifier="Usual">
+				<LabelText language="DE">Text 32</LabelText>
+			</Label>
+		</Item>
+	</Classification>
+</Claset>

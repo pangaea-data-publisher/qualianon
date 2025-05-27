@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import org.controlsfx.control.SearchableComboBox?>
+<AnchorPane prefHeight="400.0" prefWidth="831.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+	<children>
+		<BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<center>
+				<HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+					<children>
+						<VBox alignment="CENTER_LEFT" prefHeight="354.0" prefWidth="831.0" style="-fx-background-color: #FFFFFF;">
+							<children>
+								<HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+									<children>
+										<Label fx:id="functionLabel" alignment="TOP_CENTER" text="New">
+											<font>
+												<Font size="27.0" />
+											</font>
+											<HBox.margin>
+												<Insets left="50.0" />
+											</HBox.margin>
+										</Label>
+										<Label alignment="TOP_CENTER" text=" Replacement for &quot;">
+											<font>
+												<Font size="27.0" />
+											</font>
+										</Label>
+										<Label fx:id="selectedTextLabel" alignment="TOP_CENTER" text="Text">
+											<font>
+												<Font size="27.0" />
+											</font>
+										</Label>
+										<Label alignment="TOP_CENTER" text="&quot;">
+											<font>
+												<Font size="27.0" />
+											</font>
+										</Label>
+									</children>
+								</HBox>
+								<GridPane hgap="10.0" vgap="3.0">
+									<columnConstraints>
+										<ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="8.0" prefWidth="200.0" />
+										<ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="350.0" />
+										<ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="185.0" />
+									</columnConstraints>
+									<rowConstraints>
+										<RowConstraints minHeight="8.0" prefHeight="30.0" vgrow="SOMETIMES" />
+									</rowConstraints>
+									<children>
+										<Label text="Category">
+										</Label>
+										<SearchableComboBox fx:id="categoriesComboBox" prefHeight="27.0" prefWidth="344.0" promptText="Select" GridPane.columnIndex="1" />
+									</children>
+									<VBox.margin>
+										<Insets bottom="10.0" left="50.0" right="50.0" />
+									</VBox.margin>
+								</GridPane>
+								<GridPane fx:id="gridPane" hgap="10.0" vgap="3.0">
+									<columnConstraints>
+										<ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="8.0" prefWidth="200.0" />
+										<ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="350.0" />
+										<ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="185.0" />
+									</columnConstraints>
+									<VBox.margin>
+										<Insets bottom="20.0" left="50.0" right="50.0" />
+									</VBox.margin>
+								</GridPane>
+							</children>
+						</VBox>
+					</children>
+				</HBox>
+			</center>
+			<bottom>
+				<HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+					<children>
+						<Button cancelButton="true" mnemonicParsing="false" onAction="#onCancel" prefWidth="80.0" text="Cancel">
+							<opaqueInsets>
+								<Insets />
+							</opaqueInsets>
+						</Button>
+						<Button fx:id="insertButton" defaultButton="true" mnemonicParsing="false" onAction="#onInsert" prefWidth="80.0" text="Insert">
+							<HBox.margin>
+								<Insets left="10.0" />
+							</HBox.margin>
+						</Button>
+					</children>
+					<padding>
+						<Insets bottom="10.0" right="10.0" top="10.0" />
+					</padding>
+					<BorderPane.margin>
+						<Insets />
+					</BorderPane.margin>
+				</HBox>
+			</bottom>
+		</BorderPane>
+	</children>
+</AnchorPane>

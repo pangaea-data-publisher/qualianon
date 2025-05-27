@@ -1,0 +1,5 @@
+@startuml
+
+Example1 <|- Example2
+
+@enduml

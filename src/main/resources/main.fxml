@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300" minWidth="400" prefHeight="680.0"
+            prefWidth="1200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <MenuBar GridPane.columnSpan="2147483647">
+                <Menu mnemonicParsing="false" text="File">
+                    <MenuItem accelerator="Ctrl+O" onAction="#onOpenProjectAction" text="Open Project ..."/>
+                    <MenuItem fx:id="openRecentProjectMenu" accelerator="Ctrl+R" onAction="#onOpenRecentProjectMenu" text="Open Recent Project ..."/>
+                    <MenuItem onAction="#onExportProjectAction" text="Export Project"/>
+                    <MenuItem onAction="#onCloseProjectAction" text="Close Project"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem accelerator="Ctrl+S" onAction="#onSaveProjectAction" text="Save Project"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem accelerator="Ctrl+I" onAction="#onImportAction" text="Import Document(s) [docx]..."/>
+                    <SeparatorMenuItem/>
+                    <MenuItem accelerator="Ctrl+I" onAction="#onOpenPreferenceMenu"
+                              text="Preferences"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem accelerator="Alt+F4" onAction="#onQuitAction" text="Quit"/>
+                </Menu>
+                <Menu text="Edit">
+                    <MenuItem fx:id="undoMenu" accelerator="Ctrl+Z" onAction="#onUndoAction" text="Undo"/>
+                    <MenuItem fx:id="redoMenu" accelerator="Shift+Ctrl+Z" onAction="#onRedoAction" text="Redo"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem fx:id="findMenu" accelerator="Ctrl+F" onAction="#onFindAction" text="Find ..."/>
+                    <MenuItem fx:id="renameMenu" onAction="#onRenameAction" text="Rename"/>
+                    <MenuItem fx:id="deleteMenu" onAction="#onDeleteAction" text="Delete"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem onAction="#onNewCategoryAction" text="New Category"/>
+                    <MenuItem accelerator="Ctrl+E" onAction="#onNewExportAction" text="New Export ..."/>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Window">
+                    <MenuItem onAction="#onShowMessageLogAction" text="Show Message Log"/>
+                    <MenuItem accelerator="Ctrl+W" onAction="#onCloseActiveBottomTabAction"
+                              text="Close Active Bottom Tab"/>
+                    <MenuItem accelerator="Ctrl+Shift+W" onAction="#onCloseAllBottomTabsAction"
+                              text="Close All Bottom Tabs"/>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <MenuItem onAction="#onShowUserManual" text="User Manual"/>
+                    <MenuItem onAction="#onShowQualiservice" text="Qualiservice Website"/>
+                    <MenuItem onAction="#onShowGithub" text="QualiAnon @ Github"/>
+                </Menu>
+            </MenuBar>
+        </GridPane>
+    </top>
+
+    <center>
+        <SplitPane fx:id="mainSplitPane" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <SplitPane fx:id="topSplitPane" orientation="HORIZONTAL" AnchorPane.bottomAnchor="0.0"
+                       AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <TabPane fx:id="leftTabPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                         AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <Tab fx:id="documentsTab" closable="false" text="Documents">
+                        <AnchorPane fx:id="documentsTabPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <Label text="No documents"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="replacementsTab" closable="false" text="Replacements">
+                        <AnchorPane fx:id="replacementsTabPane" AnchorPane.bottomAnchor="0.0"
+                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <Label text="No replacements"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="categoriesTab" closable="false" text="Categories">
+                        <AnchorPane fx:id="categoriesTabPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <Label text="No categories"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="exportsTab" closable="false" text="Exports">
+                        <AnchorPane fx:id="exportsTabPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        </AnchorPane>
+                    </Tab>
+                </TabPane>
+            </SplitPane>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER">
+            <Label fx:id="statusLine" text="Status line"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label text="Select "/>
+            <ComboBox fx:id="selectionModeComboBox"/>
+        </HBox>
+    </bottom>
+</BorderPane>
