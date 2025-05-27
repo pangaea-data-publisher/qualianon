@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="250.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+                <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="354.0" prefWidth="831.0" style="-fx-background-color: #FFFFFF;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label alignment="TOP_CENTER" text="Export Project as 2 ZIPs: Anonymized and ID" textFill="#252525">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="50.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <GridPane>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="73.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" maxWidth="Infinity" minWidth="10.0" prefWidth="218.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="321.0" minWidth="10.0" prefWidth="123.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Location">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="locationLabel" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#onBrowse" prefHeight="33.0" prefWidth="113.0" text="Browse ..." textAlignment="RIGHT" textOverrun="CLIP">
+                                                    <font>
+                                                        <Font size="18.0" />
+                                                    </font>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="50.0" left="50.0" right="50.0" />
+                                    </VBox.margin>
+                                </GridPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </center>
+            <bottom>
+                <VBox>
+
+                    <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                        <children>
+                            <Button cancelButton="true" mnemonicParsing="false" onAction="#onCancel" prefWidth="80.0" text="Cancel">
+                                <opaqueInsets>
+                                    <Insets />
+                                </opaqueInsets>
+                            </Button>
+                            <Button fx:id="exportButton" defaultButton="true" mnemonicParsing="false" onAction="#onExport" prefWidth="80.0" text="Export">
+                                <HBox.margin>
+                                    <Insets left="10.0" />
+                                </HBox.margin>
+                            </Button>
+                        </children>
+                        <padding>
+                            <Insets bottom="10.0" right="10.0" top="10.0" />
+                        </padding>
+                        <BorderPane.margin>
+                            <Insets />
+                        </BorderPane.margin>
+                    </HBox>
+                </VBox>
+            </bottom>
+        </BorderPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<BorderPane prefHeight="650.0" prefWidth="1000" xmlns="http://javafx.com/javafx"
+			xmlns:fx="http://javafx.com/fxml">
+
+	<center>
+		<TabPane fx:id="tabPane" prefHeight="360.0" prefWidth="573.0" tabClosingPolicy="UNAVAILABLE"
+				 BorderPane.alignment="CENTER">
+			<Tab text="+">
+				<GridPane>
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" percentWidth="63"/>
+						<ColumnConstraints hgrow="SOMETIMES" percentWidth="2"/>
+						<ColumnConstraints hgrow="SOMETIMES" prefWidth="35"/>
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+					</rowConstraints>
+					<ScrollPane fitToWidth="true" style="-fx-background-color: transparent">
+						<GridPane fx:id="creationGridPane">
+							<columnConstraints>
+								<ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0"/>
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+							</rowConstraints>
+							<ColorPicker fx:id="newCategoryColor" GridPane.columnIndex="0"
+										 GridPane.halignment="CENTER" GridPane.rowIndex="1">
+								<value>
+									<Color red="0.501960813999176" green="0.501960813999176"
+										   blue="0.501960813999176"/>
+								</value>
+							</ColorPicker>
+							<TextField fx:id="newCategoryName" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+							<Button mnemonicParsing="false" onAction="#addCategoryAction" text="Add Category"
+									GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2"
+									GridPane.valignment="TOP"/>
+						</GridPane>
+					</ScrollPane>
+				</GridPane>
+			</Tab>
+		</TabPane>
+	</center>
+	<bottom>
+		<HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+			<children>
+				<Button cancelButton="true" mnemonicParsing="false" onAction="#cancelAction" prefWidth="80.0"
+						text="Cancel">
+					<opaqueInsets>
+						<Insets/>
+					</opaqueInsets>
+				</Button>
+				<Button defaultButton="true" mnemonicParsing="false" onAction="#okAction" prefWidth="80.0" text="Save">
+					<HBox.margin>
+						<Insets left="10.0"/>
+					</HBox.margin>
+				</Button>
+			</children>
+			<padding>
+				<Insets bottom="10.0" right="10.0" top="10.0"/>
+			</padding>
+			<BorderPane.margin>
+				<Insets/>
+			</BorderPane.margin>
+		</HBox>
+	</bottom>
+</BorderPane>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <left>
+	   <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
+		   <ListView fx:id="typeList" prefHeight="648.0" prefWidth="400.0">
+		   </ListView>
+	   </ScrollPane>
+   </left>
+	<center>
+		<VBox fx:id="infoPanel" style="-fx-background-color: #FFFFFF;">
+			<padding>
+				<Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+			</padding>
+		</VBox>
+	</center>
+	<bottom>
+		<HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+			<children>
+				<Button cancelButton="true" mnemonicParsing="false" onAction="#onCancelAction" prefWidth="80.0"
+						text="Cancel">
+					<opaqueInsets>
+						<Insets/>
+					</opaqueInsets>
+				</Button>
+				<Button defaultButton="true" mnemonicParsing="false" onAction="#onOkAction"
+						prefWidth="80.0" text="Import file">
+					<HBox.margin>
+						<Insets left="10.0"/>
+					</HBox.margin>
+				</Button>
+			</children>
+			<padding>
+				<Insets bottom="10.0" right="10.0" top="10.0"/>
+			</padding>
+			<BorderPane.margin>
+				<Insets/>
+			</BorderPane.margin>
+		</HBox>
+	</bottom>
+</BorderPane>
