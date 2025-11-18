@@ -1,6 +1,4 @@
 package org.qualiservice.qualianon.utility;
-import org.qualiservice.qualianon.utility.YJFileChooser;
-import org.qualiservice.qualianon.utility.YJDirectoryChooser;
 
 import java.io.File;
 import java.nio.file.Files;
