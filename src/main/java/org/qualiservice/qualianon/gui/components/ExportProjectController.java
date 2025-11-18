@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.DirectoryChooser;
+import org.qualiservice.qualianon.utility.YJDirectoryChooser;
 import javafx.stage.Stage;
 import org.qualiservice.qualianon.Main;
 import org.qualiservice.qualianon.audit.MessageLogger;
@@ -51,7 +52,7 @@ public class ExportProjectController implements Initializable {
 
     public void onBrowse(ActionEvent actionEvent) {
         actionEvent.consume();
-        final DirectoryChooser directoryChooser = new DirectoryChooser();
+        final DirectoryChooser directoryChooser = new YJDirectoryChooser();
         directoryChooser.setTitle("Select Location");
 
         final File directory = directoryChooser.showDialog(stage.getOwner());
