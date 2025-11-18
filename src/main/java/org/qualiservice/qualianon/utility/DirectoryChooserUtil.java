@@ -6,7 +6,7 @@ import javafx.stage.Window;
 
 import java.io.File;
 
-public class JDirectoryChooser extends DirectoryChooser {
+public class YJDirectoryChooser extends DirectoryChooser {
 
     public YJDirectoryChooser() {
         super();
