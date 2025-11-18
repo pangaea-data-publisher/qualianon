@@ -96,7 +96,7 @@ public class ListImportController implements Initializable {
         actionEvent.consume();
         final ImportSettings importSettings = typeList.getSelectionModel().getSelectedItem();
 
-        final FileChooser fileChooser = new FileChooser();
+        final FileChooser fileChooser = new YJFileChooser();
         fileChooser.setTitle("Import " + importSettings.getTitle());
         fileChooser.getExtensionFilters().addAll(importSettings.getExtensionFilter());
         file = fileChooser.showOpenDialog(stage);
