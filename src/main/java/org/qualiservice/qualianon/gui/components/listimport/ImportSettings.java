@@ -2,6 +2,7 @@ package org.qualiservice.qualianon.gui.components.listimport;
 
 import javafx.scene.Node;
 import javafx.stage.FileChooser;
+import org.qualiservice.qualianon.utility.YJFileChooser;
 
 import java.util.List;
 

@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.DirectoryChooser;
+import org.qualiservice.qualianon.utility.YJDirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -70,7 +71,7 @@ public class WelcomeController implements Initializable {
     @SuppressWarnings("unused")
     public void onOpenProject(ActionEvent e) throws IOException {
         e.consume();
-        final DirectoryChooser directoryChooser = new DirectoryChooser();
+        final DirectoryChooser directoryChooser = new YJDirectoryChooser();
         directoryChooser.setTitle("Select Project Folder");
 
         File directory = directoryChooser.showDialog(stage.getOwner());
