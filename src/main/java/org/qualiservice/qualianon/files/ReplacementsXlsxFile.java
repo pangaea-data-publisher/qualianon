@@ -24,6 +24,9 @@ import java.util.stream.Collectors;
 
 public class ReplacementsXlsxFile {
 
+    /**
+     * Writes replacements into an XLSX file with one sheet per category scheme.
+     */
     public static void write(File file, List<Replacement> replacements) throws IOException {
 
         final Map<CategoryScheme, List<Replacement>> categorySchemes = replacements.stream()
@@ -44,6 +47,9 @@ public class ReplacementsXlsxFile {
         }
     }
 
+    /**
+     * Writes a single category sheet with ID and label columns.
+     */
     private static void writeSheet(CategoryScheme categoryScheme, List<Replacement> replacements, XSSFWorkbook workbook) {
         final XSSFSheet sheet = workbook.createSheet(categoryScheme.getName());
 
@@ -77,6 +83,9 @@ public class ReplacementsXlsxFile {
         }
     }
 
+    /**
+     * Reads replacements from an XLSX file using category sheet names.
+     */
     public static List<Replacement> read(File file, Categories categories, MessageLogger messageLogger) throws IOException {
 
         try (final InputStream is = new FileInputStream(file)) {

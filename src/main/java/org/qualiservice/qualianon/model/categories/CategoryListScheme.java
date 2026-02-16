@@ -20,11 +20,17 @@ public class CategoryListScheme {
         fileProperty = new StringProperty();
     }
 
+    /**
+     * Returns the filename of the list file within the categories directory.
+     */
     @JsonProperty
     public String getFile() {
         return fileProperty.getValue();
     }
 
+    /**
+     * Sets the list file name stored with the category scheme.
+     */
     @JsonProperty
     public CategoryListScheme setFile(String file) {
         this.fileProperty.setValue(file);
@@ -36,11 +42,17 @@ public class CategoryListScheme {
         return fileProperty;
     }
 
+    /**
+     * Returns the list selection style (single, multi, etc.).
+     */
     @JsonProperty
     public SelectionStyle getStyle() {
         return style;
     }
 
+    /**
+     * Sets how list entries are selected in the UI.
+     */
     @JsonProperty
     public CategoryListScheme setStyle(SelectionStyle style) {
         this.style = style;
@@ -56,6 +68,9 @@ public class CategoryListScheme {
         return this;
     }
 
+    /**
+     * Loads the coding list from disk using the configured importer.
+     */
     public CodingList loadList(File categoriesDirectories, MessageLogger messageLogger) {
         final File file = new File(categoriesDirectories.getAbsolutePath(), fileProperty.getValue());
         return importer.importFile(file, messageLogger);

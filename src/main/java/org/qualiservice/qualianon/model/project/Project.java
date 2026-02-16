@@ -47,6 +47,9 @@ public class Project implements CommandRunner {
         anonymizedFilesModifiedProperty = new BooleanProperty();
     }
 
+    /**
+     * Initializes the project by ensuring directories exist and loading persisted state.
+     */
     public void open() {
         createDirectoryStructureIfNotExists();
         categories = loadCategoriesFile();
@@ -75,6 +78,9 @@ public class Project implements CommandRunner {
         return anonymizedFiles;
     }
 
+    /**
+     * Loads all anonymized documents from disk and wires modification listeners.
+     */
     private void loadDocuments() {
         final File[] files = getAnonymizedDirectory().listFiles((FilenameFilter) new SuffixFileFilter(".docx"));
         for (final File file : Objects.requireNonNull(files)) {
@@ -91,6 +97,9 @@ public class Project implements CommandRunner {
         anonymizedFilesModifiedProperty.setValue(false);
     }
 
+    /**
+     * Imports a DOCX into the project, normalizes line breaks, and persists it.
+     */
     public AnonymizedFile importDocument(File file) throws IOException, DocumentAlreadyImportedException {
         final Backup backup = new Backup(getBackupDirectory(), logger);
         final AnonymizedFile document = new AnonymizedFile(
@@ -115,6 +124,9 @@ public class Project implements CommandRunner {
         });
     }
 
+    /**
+     * Runs a search across the active document or all documents, marking selected hits.
+     */
     public List<SearchResult> search(SearchParams searchParams) {
 
         if (searchParams.isActiveDocumentFilter()) {
@@ -153,6 +165,9 @@ public class Project implements CommandRunner {
                 .orElse(false);
     }
 
+    /**
+     * Exports the project directories into a ZIP for transfer/archival.
+     */
     public void exportProject(File targetZipPath) throws IOException {
         Map<String, List<File>> pathsToZip = new HashMap<>();
         pathsToZip.put("anonymized", Arrays.asList(
@@ -172,6 +187,9 @@ public class Project implements CommandRunner {
         fileZipper.exportProject();
     }
 
+    /**
+     * Saves categories, replacements, and modified documents with backups.
+     */
     public boolean saveAllDocuments() {
         return StandardDialogs.progressDialog(() -> {
             final Backup backup = new Backup(getBackupDirectory(), logger);
@@ -209,6 +227,9 @@ public class Project implements CommandRunner {
         anonymizedFiles.sort(Comparator.comparing(anonymizedFile -> anonymizedFile.getFile().getName()));
     }
 
+    /**
+     * Loads replacements from the project XLSX and updates the in-memory collection.
+     */
     private void loadReplacementsFile() {
         try {
             final List<Replacement> replacements = ReplacementsXlsxFile.read(getReplacementsFile(), categories, logger);
@@ -229,6 +250,9 @@ public class Project implements CommandRunner {
         return stackTraceAsString;
     }
 
+    /**
+     * Persists replacements to XLSX and records a backup before overwriting.
+     */
     private void saveReplacementsFile(Backup backup) {
         logger.logInfo("Starting to save replacements file...");
         try {
@@ -253,6 +277,9 @@ public class Project implements CommandRunner {
         return categories;
     }
 
+    /**
+     * Loads categories from XML and initializes list-backed resources.
+     */
     private Categories loadCategoriesFile() {
         Categories categories;
         try {
@@ -270,6 +297,9 @@ public class Project implements CommandRunner {
         return categories;
     }
 
+    /**
+     * Persists categories to XML and records a backup before overwriting.
+     */
     private void saveCategoriesFile(Backup backup) {
         try {
             backup.add(getCategoriesXmlFile());
@@ -334,6 +364,9 @@ public class Project implements CommandRunner {
                 getCategoriesDirectory().exists();
     }
 
+    /**
+     * Ensures the on-disk project directory structure exists.
+     */
     private void createDirectoryStructureIfNotExists() {
         FileTools.createDirectoryIfNotExists(getExportsDirectory());
         FileTools.createDirectoryIfNotExists(getAnonymizedDirectory());
@@ -379,6 +412,9 @@ public class Project implements CommandRunner {
         return new File(getProjectDirectory().getAbsoluteFile(), "auditfile.txt");
     }
 
+    /**
+     * Returns a subdirectory path under the project root.
+     */
     private File getSubDirectory(String subDirectory) {
         return new File(projectDirectory.getAbsoluteFile(), subDirectory);
     }

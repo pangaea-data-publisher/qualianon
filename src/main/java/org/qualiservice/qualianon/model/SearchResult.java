@@ -21,14 +21,23 @@ public class SearchResult {
         this.range = range;
     }
 
+    /**
+     * Returns the name of the document where the search result was found.
+     */
     public String getDocumentName() {
         return documentName;
     }
 
+    /**
+     * Returns the line/column coordinates for the match.
+     */
     public Coords getCoords() {
         return coords;
     }
 
+    /**
+     * Indicates whether the result is currently selected in the UI.
+     */
     public boolean isSelected() {
         return selected;
     }
@@ -37,10 +46,16 @@ public class SearchResult {
         this.selected = selected;
     }
 
+    /**
+     * Returns the full line text containing the match.
+     */
     public String getLineContext() {
         return lineContext;
     }
 
+    /**
+     * Returns the character range of the match in the document.
+     */
     public PositionRange getRange() {
         return range;
     }

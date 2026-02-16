@@ -48,6 +48,9 @@ public class Export {
         return this;
     }
 
+    /**
+     * Persists the export profile and renders all documents into the export folder.
+     */
     public Export saveSettingsAndDocuments(List<AnonymizedFile> anonymizedFiles) throws IOException {
         AtomicBoolean error = new AtomicBoolean(false);
         try {
@@ -74,6 +77,9 @@ public class Export {
         return this;
     }
 
+    /**
+     * Loads an export profile from the given export directory.
+     */
     public Export load(File myDirectory) throws IOException {
         name = myDirectory.getName();
         final AnonymizationProfile anonymizationProfile = XmlFileHandler
@@ -83,11 +89,17 @@ public class Export {
         return this;
     }
 
+    /**
+     * Moves the export directory into the trash folder.
+     */
     public boolean delete() {
         trashFile = new File(trashDirectory.getAbsolutePath(), name + "." + UUID.randomUUID());
         return getMyDirectory().renameTo(trashFile);
     }
 
+    /**
+     * Restores a trashed export directory to its original location.
+     */
     public boolean restore() {
         final boolean success = trashFile.renameTo(getMyDirectory());
         if (!success) return false;
@@ -95,6 +107,9 @@ public class Export {
         return true;
     }
 
+    /**
+     * Renames the export directory on disk and updates the name.
+     */
     public boolean rename(String newName) {
         final File newFile = new File(exportsDirectory.getAbsolutePath(), newName);
         final boolean success = getMyDirectory().renameTo(newFile);
@@ -107,6 +122,9 @@ public class Export {
         return new File(getMyDirectory().getAbsolutePath(), "profile.xml");
     }
 
+    /**
+     * Ensures the export directory exists and returns it.
+     */
     public File getMyDirectory() {
         final File directory = new File(exportsDirectory.getAbsolutePath(), name);
         if (!directory.exists()) {

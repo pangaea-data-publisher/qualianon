@@ -17,6 +17,9 @@ public class SearchParams {
     private boolean unmarked;
     private boolean activeDocumentFilter;
 
+    /**
+     * Creates basic search parameters without filters.
+     */
     public static SearchParams plain(String text) {
         return new SearchParams(text, null, null, false, false, false, false);
     }
@@ -35,6 +38,9 @@ public class SearchParams {
         return text;
     }
 
+    /**
+     * Returns the search string adjusted for case sensitivity.
+     */
     public String getSearchString() {
         if (matchCase) return text;
         else return text.toLowerCase(Locale.getDefault());
@@ -48,6 +54,9 @@ public class SearchParams {
         return activeDocument;
     }
 
+    /**
+     * Filters results to the active document.
+     */
     public SearchParams withActiveDocument(AnonymizedFile selectedBaseTab) {
         activeDocument = selectedBaseTab;
         return this;
@@ -57,6 +66,9 @@ public class SearchParams {
         return wholeWords;
     }
 
+    /**
+     * Enables whole-word matching.
+     */
     public SearchParams withWholeWords() {
         wholeWords = true;
         return this;
@@ -66,6 +78,9 @@ public class SearchParams {
         return matchCase;
     }
 
+    /**
+     * Enables case-sensitive matching.
+     */
     public SearchParams withMatchCase() {
         matchCase = true;
         return this;
@@ -75,6 +90,9 @@ public class SearchParams {
         return unmarked;
     }
 
+    /**
+     * Enables filtering to unmarked results only.
+     */
     public SearchParams withUnmarked() {
         unmarked = true;
         return this;
@@ -84,6 +102,9 @@ public class SearchParams {
         return activeDocumentFilter;
     }
 
+    /**
+     * Enables filtering to the active document only.
+     */
     public SearchParams withActiveDocumentFilter() {
         activeDocumentFilter = true;
         return this;
@@ -102,6 +123,9 @@ public class SearchParams {
         return Objects.hash(text, activeSelection, activeDocument, wholeWords, matchCase, unmarked, activeDocumentFilter);
     }
 
+    /**
+     * Describes the active filters for UI display.
+     */
     public String getDescription() {
         return Stream.of(
                 wholeWords ? "words" : null,

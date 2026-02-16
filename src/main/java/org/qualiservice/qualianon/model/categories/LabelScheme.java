@@ -44,6 +44,9 @@ public class LabelScheme extends UpdatableImpl {
         return name;
     }
 
+    /**
+     * Returns the persisted choice values for this label scheme.
+     */
     @JsonProperty
     @JacksonXmlElementWrapper(localName = "choices")
     @JacksonXmlProperty(localName = "choice")
@@ -53,6 +56,9 @@ public class LabelScheme extends UpdatableImpl {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Replaces the choices with new values, preserving update semantics.
+     */
     @JsonProperty
     @JacksonXmlElementWrapper(localName = "choices")
     @JacksonXmlProperty(localName = "choice")
@@ -71,6 +77,9 @@ public class LabelScheme extends UpdatableImpl {
         return choices;
     }
 
+    /**
+     * Adds a choice at the given index or appends if index is -1.
+     */
     public LabelScheme addChoice(StringProperty choice, int index) {
         if (index == -1) {
             choices.add(choice);
@@ -92,6 +101,9 @@ public class LabelScheme extends UpdatableImpl {
         choices.remove(choice);
     }
 
+    /**
+     * Indicates whether any choices are defined for this label.
+     */
     public boolean hasChoices() {
         return choices.size() > 0;
     }

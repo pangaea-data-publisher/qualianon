@@ -57,10 +57,16 @@ public class IndexedText {
         markers.remove(marker);
     }
 
+    /**
+     * Renders the text with marker codes as stored in anonymized DOCX files.
+     */
     public String toAnonymized() {
         return anonymize(MarkerRuntime::getCode);
     }
 
+    /**
+     * Renders the text for export, applying anonymization rules and line numbers.
+     */
     public String toExport(AnonymizationProfile anonymizationProfile, boolean withLineNumbers) {
         final ReplacementCounter replacementCounter = new ReplacementCounter();
         final String anonymized = anonymize(marker -> {
@@ -90,6 +96,9 @@ public class IndexedText {
         return sb.toString();
     }
 
+    /**
+     * Rebuilds runtime markers from anonymized text and persisted marker storage.
+     */
     public static IndexedText fromAnonymized(String anonymized, List<MarkerStorage> markers, ReplacementCollection replacementCollection, MessageLogger messageLogger) {
         final List<MarkerRuntime> markerRuntimes = new LinkedList<>();
         String text = anonymized;
@@ -126,6 +135,9 @@ public class IndexedText {
         return new IndexedText(text).setMarkers(markerRuntimes);
     }
 
+    /**
+     * Searches the text for matches and returns results with line coordinates.
+     */
     public List<SearchResult> search(SearchParams searchParams, String documentName) {
         final LinkedList<SearchResult> results = new LinkedList<>();
         int fromIndex = 0;
@@ -185,6 +197,9 @@ public class IndexedText {
         return text.substring(range.getStart(), range.getEnd());
     }
 
+    /**
+     * Serializes runtime markers for persistence to XLSX.
+     */
     public List<MarkerStorage> getMarkersForStorage() {
         return markers.stream()
                 .map(markerRuntime -> new MarkerStorage()
@@ -196,6 +211,9 @@ public class IndexedText {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Prefixes each line with a 1-based line number for export references.
+     */
     public static String addLineNumbers(String text) {
         final StringBuilder sb = new StringBuilder();
         final String[] lines = text.split("\n");
@@ -209,4 +227,3 @@ public class IndexedText {
         String getAnonymizedText(MarkerRuntime marker);
     }
 }
-

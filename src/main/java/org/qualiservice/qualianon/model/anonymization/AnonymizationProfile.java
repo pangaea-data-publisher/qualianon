@@ -26,6 +26,9 @@ public class AnonymizationProfile extends UpdatableImpl {
     private final UpdateListener categoryProfilesUpdateListener;
 
 
+    /**
+     * Builds a default profile from current categories with all labels disabled.
+     */
     public static AnonymizationProfile fromCategories(Categories categories) {
         final AnonymizationProfile profile = new AnonymizationProfile();
         for (final CategoryScheme category : categories.getCategories()) {
@@ -48,6 +51,9 @@ public class AnonymizationProfile extends UpdatableImpl {
         return categoryProfiles;
     }
 
+    /**
+     * Returns a category profile by name or a new default if missing.
+     */
     public CategoryProfile getCategoryProfile(CategoryScheme categoryScheme) {
         return categoryProfiles.stream()
                 .filter(profile -> profile.getCategoryName().equals(categoryScheme.getName()))
@@ -74,6 +80,9 @@ public class AnonymizationProfile extends UpdatableImpl {
         return getCategoryProfile(categoryScheme).isLabelEnabled(labelName);
     }
 
+    /**
+     * Marks the profile as persisted by resetting modified flags.
+     */
     public AnonymizationProfile setPersisted() {
         categoryProfiles.forEach(CategoryProfile::setPersisted);
         notifyUpdateListeners(true);
@@ -88,6 +97,9 @@ public class AnonymizationProfile extends UpdatableImpl {
                 .orElse(false);
     }
 
+    /**
+     * Deep-clones via XML serialization to preserve profile structure.
+     */
     public AnonymizationProfile clone(MessageLogger messageLogger) {
         try {
             final XmlMapper xmlMapper = new XmlMapper();

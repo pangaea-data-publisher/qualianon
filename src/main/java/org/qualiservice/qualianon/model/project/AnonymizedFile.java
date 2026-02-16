@@ -68,12 +68,18 @@ public class AnonymizedFile extends UpdatableElement {
         return modified;
     }
 
+    /**
+     * Loads an existing anonymized DOCX and its marker storage into memory.
+     */
     public AnonymizedFile load(File file) throws IOException {
         this.file = file;
         reload();
         return this;
     }
 
+    /**
+     * Reloads the document text and markers from disk.
+     */
     public void reload() throws IOException {
         final String anonymized = DocxFile.read(file);
         final List<MarkerStorage> markerStorages = MarkerXlsxFile.read(getMarkerStorageFile());
@@ -81,6 +87,9 @@ public class AnonymizedFile extends UpdatableElement {
         updateDocument(indexedText, false);
     }
 
+    /**
+     * Imports a DOCX, applies line-breaking rules, and persists as a project document.
+     */
     public AnonymizedFile importFile(File directory, File importFile, int lineLength, Backup backup) throws IOException, DocumentAlreadyImportedException {
         final File file = new File(directory.getPath() + "/" + importFile.getName());
         if (file.exists()) {
@@ -117,6 +126,9 @@ public class AnonymizedFile extends UpdatableElement {
         notifyUpdateListeners();
     }
 
+    /**
+     * Saves the current document and marker storage, creating backups first.
+     */
     public boolean save(Backup backup) {
         try {
             backup.add(file);
@@ -140,6 +152,9 @@ public class AnonymizedFile extends UpdatableElement {
         save(backup);
     }
 
+    /**
+     * Moves the document and marker files into the trash directory.
+     */
     public boolean delete() {
         if (trashFileId != null) return false;
         trashFileId = UUID.randomUUID();
@@ -148,6 +163,9 @@ public class AnonymizedFile extends UpdatableElement {
         return successDocument && successMarker;
     }
 
+    /**
+     * Restores the document and marker files from trash.
+     */
     public boolean restore() {
         if (trashFileId == null) return false;
         final boolean successDocument = getDocumentTrashFile().renameTo(file);
@@ -156,6 +174,9 @@ public class AnonymizedFile extends UpdatableElement {
         return successDocument && successMarker;
     }
 
+    /**
+     * Writes an anonymized export DOCX using the provided profile.
+     */
     public void export(Export export) throws IOException {
         final File exportFile = new File(export.getMyDirectory(), getExportFilename());
         DocxFile.write(exportFile, indexedText.toExport(export.getAnonymizationProfile(), UserPreferences.getExportLineNumbers()));

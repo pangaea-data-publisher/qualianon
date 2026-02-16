@@ -56,10 +56,16 @@ public class CategoryProfile extends UpdatableImpl {
         return this;
     }
 
+    /**
+     * Returns the label profiles configured for this category.
+     */
     public List<LabelProfile> getLabelProfiles() {
         return labelProfiles;
     }
 
+    /**
+     * Assigns label profiles and wires modification listeners.
+     */
     public CategoryProfile setLabelProfiles(List<LabelProfile> labelProfiles) {
         if (labelProfiles != null) {
             this.labelProfiles = labelProfiles;
@@ -76,6 +82,9 @@ public class CategoryProfile extends UpdatableImpl {
         return this;
     }
 
+    /**
+     * Checks whether a label is enabled for export in this category.
+     */
     public boolean isLabelEnabled(String label) {
         if (labelProfiles == null) return false;
         return labelProfiles.stream()
@@ -85,11 +94,17 @@ public class CategoryProfile extends UpdatableImpl {
                 .isEnabled();
     }
 
+    /**
+     * Returns whether counting is enabled for this category in exports.
+     */
     @JacksonXmlProperty
     public boolean isCountingEnabled() {
         return countingEnabled.isValue();
     }
 
+    /**
+     * Enables or disables counting for this category in exports.
+     */
     @JacksonXmlProperty
     public CategoryProfile setCountingEnabled(boolean enabled) {
         countingEnabled.setValue(enabled);
@@ -108,6 +123,9 @@ public class CategoryProfile extends UpdatableImpl {
         return originalEnabled.isValue();
     }
 
+    /**
+     * Enables or disables original text output for this category.
+     */
     @JacksonXmlProperty
     public CategoryProfile setOriginalEnabled(boolean enabled) {
         originalEnabled.setValue(enabled);
@@ -125,6 +143,9 @@ public class CategoryProfile extends UpdatableImpl {
         return modified;
     }
 
+    /**
+     * Resets modified flags after a successful save.
+     */
     public void setPersisted() {
         originalEnabled.setPersisted();
         countingEnabled.setPersisted();

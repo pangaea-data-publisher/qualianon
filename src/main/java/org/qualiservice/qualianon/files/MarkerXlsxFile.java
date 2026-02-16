@@ -15,6 +15,9 @@ import java.util.*;
 
 public class MarkerXlsxFile {
 
+    /**
+     * Reads marker storage rows from the document's marker XLSX file.
+     */
     public static List<MarkerStorage> read(File file) throws IOException {
         try (final InputStream is = new FileInputStream(file)) {
             final List<MarkerStorage> result = new LinkedList<>();
@@ -37,11 +40,17 @@ public class MarkerXlsxFile {
         }
     }
 
+    /**
+     * Extracts a cell's string value, returning null if the cell is missing.
+     */
     public static String getCellValueOrNull(Row row, int cellnum) {
         if (row.getCell(cellnum) == null) return null;
         return row.getCell(cellnum).getStringCellValue();
     }
 
+    /**
+     * Writes marker storage rows to a single-sheet XLSX file.
+     */
     public static void write(File file, List<MarkerStorage> markers) throws IOException {
         final XSSFWorkbook workbook = new XSSFWorkbook();
         final XSSFSheet sheet = workbook.createSheet("Markers");

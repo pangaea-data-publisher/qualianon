@@ -1,0 +1,64 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "model.project" {
+  class Project
+  class AnonymizedFile
+  class ReplacementCollection
+  class Replacement
+  class ExportList
+}
+
+package "model.categories" {
+  class Categories
+  class CategoryScheme
+  class CodingList
+  class LabelScheme
+}
+
+package "model.anonymization" {
+  class AnonymizationProfile
+  class CategoryProfile
+  class LabelProfile
+}
+
+package "model.exports" {
+  class Export
+}
+
+package "model.text" {
+  class IndexedText
+  class MarkerRuntime
+  class MarkerStorage
+}
+
+package "model.commands" {
+  interface Command
+  class CommandList
+}
+
+Project o-- "many" AnonymizedFile
+Project o-- ReplacementCollection
+Project o-- Categories
+Project o-- ExportList
+
+AnonymizedFile --> IndexedText
+AnonymizedFile --> MarkerStorage
+ReplacementCollection o-- "many" Replacement
+Replacement --> CategoryScheme
+
+Categories o-- "many" CategoryScheme
+CategoryScheme --> "0..1" CodingList
+CategoryScheme o-- "many" LabelScheme
+
+ExportList o-- "many" Export
+Export --> AnonymizationProfile
+AnonymizationProfile o-- "many" CategoryProfile
+CategoryProfile o-- "many" LabelProfile
+
+IndexedText o-- "many" MarkerRuntime
+MarkerRuntime --> Replacement
+MarkerRuntime --> "0..1" MarkerStorage
+
+CommandList o-- "many" Command
+@enduml

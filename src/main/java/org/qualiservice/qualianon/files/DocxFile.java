@@ -6,6 +6,9 @@ import java.io.*;
 
 public class DocxFile {
 
+    /**
+     * Reads a DOCX as plain text, preserving paragraph boundaries as newlines.
+     */
     public static String read(File file) throws IOException {
         try (FileInputStream fis = new FileInputStream(file)) {
             final StringBuilder sb = new StringBuilder();
@@ -15,6 +18,9 @@ public class DocxFile {
         }
     }
 
+    /**
+     * Converts document paragraphs and runs into plain text output.
+     */
     private static void readDocument(XWPFDocument document, StringBuilder sb) {
         for (IBodyElement e : document.getParagraphs()) {
                 readParagraph((XWPFParagraph) e, document, sb);
@@ -34,6 +40,9 @@ public class DocxFile {
         }
     }
 
+    /**
+     * Writes each text line as a separate paragraph in the DOCX.
+     */
     public static void write(File file, String text) throws IOException {
         final XWPFDocument doc = new XWPFDocument();
 

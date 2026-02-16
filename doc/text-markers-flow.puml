@@ -1,0 +1,16 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class AnonymizedFile
+class IndexedText
+class MarkerRuntime
+class MarkerStorage
+class Replacement
+class AnonymizationProfile
+
+AnonymizedFile --> IndexedText : load()/save()
+IndexedText o-- "many" MarkerRuntime
+MarkerRuntime --> Replacement
+MarkerRuntime ..> MarkerStorage : persist as
+IndexedText --> AnonymizationProfile : toExport()
+@enduml

@@ -69,12 +69,18 @@ public class Categories extends UpdatableImpl {
         return null;
     }
 
+    /**
+     * Initializes category storage and imports referenced coding lists.
+     */
     public void init(File categoriesDirectory, MessageLogger messageLogger) {
         this.categoriesDirectory = categoriesDirectory;
         this.messageLogger = messageLogger;
         importCodingLists();
     }
 
+    /**
+     * Loads coding lists referenced by category schemes into memory.
+     */
     private void importCodingLists() {
         for (final CategoryScheme categoryScheme : categories) {
             if (!categoryScheme.hasCategoryList()) continue;
@@ -87,6 +93,9 @@ public class Categories extends UpdatableImpl {
         }
     }
 
+    /**
+     * Returns the coding list associated with the given category scheme.
+     */
     public CodingList getCodingList(CategoryScheme categoryScheme) {
         return codingLists.get(categoryScheme.getCategoryList().getFile());
     }
@@ -98,6 +107,9 @@ public class Categories extends UpdatableImpl {
         notifyUpdateListeners(false);
     }
 
+    /**
+     * Generates a unique default category name for UI creation.
+     */
     public String makeNewName() {
         final List<String> names = getCategoriesProperty().stream()
                 .map(CategoryScheme::getName)

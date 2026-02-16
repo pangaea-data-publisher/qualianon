@@ -23,6 +23,9 @@ public class ExportList extends UpdatableImpl {
     private final MessageLogger messageLogger;
 
 
+    /**
+     * Loads existing exports from disk and initializes the list.
+     */
     public ExportList(File exportsDirectory, File trashDirectory, MessageLogger messageLogger) {
         this.exportsDirectory = exportsDirectory;
         this.messageLogger = messageLogger;
@@ -50,6 +53,9 @@ public class ExportList extends UpdatableImpl {
         notifyUpdateListeners(true);
     }
 
+    /**
+     * Creates a new export, persists its profile, and renders all documents.
+     */
     public Export newExport(String name, AnonymizationProfile anonymizationProfile, ObservableList<AnonymizedFile> anonymizedFiles) throws IOException {
         final Export export = new Export(exportsDirectory, trashDirectory, messageLogger)
                 .setName(getUniqueName(name))
@@ -60,6 +66,9 @@ public class ExportList extends UpdatableImpl {
         return export;
     }
 
+    /**
+     * Deletes an export directory by moving it to trash.
+     */
     public boolean deleteExport(Export export) {
         final boolean success = export.delete();
         if (!success) return false;
@@ -68,6 +77,9 @@ public class ExportList extends UpdatableImpl {
         return true;
     }
 
+    /**
+     * Restores an export directory from trash.
+     */
     public boolean restoreExport(Export export) {
         final boolean success = export.restore();
         if (!success) return false;
@@ -76,6 +88,9 @@ public class ExportList extends UpdatableImpl {
         return true;
     }
 
+    /**
+     * Renames an export directory and updates observers.
+     */
     public boolean renameExport(Export export, String name) {
         final boolean success = export.rename(name);
         if (!success) return false;
@@ -83,6 +98,9 @@ public class ExportList extends UpdatableImpl {
         return true;
     }
 
+    /**
+     * Generates a unique export name within the exports directory.
+     */
     public String getUniqueName(String name) {
         final AtomicInteger counter = new AtomicInteger(1);
 

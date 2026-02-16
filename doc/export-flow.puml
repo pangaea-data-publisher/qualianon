@@ -1,0 +1,15 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Project
+class ExportList
+class Export
+class AnonymizationProfile
+class AnonymizedFile
+
+Project o-- ExportList
+ExportList o-- "many" Export
+Export --> AnonymizationProfile
+Project o-- "many" AnonymizedFile
+Export ..> AnonymizedFile : export()
+@enduml

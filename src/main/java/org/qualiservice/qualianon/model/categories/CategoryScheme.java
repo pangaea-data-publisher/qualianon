@@ -21,6 +21,9 @@ public class CategoryScheme extends UpdatableImpl {
     private final ListProperty<LabelScheme> labels;
     private CategoryListScheme categoryList;
 
+    /**
+     * Returns a sheet-safe name for XLSX exports.
+     */
     public static String makeSafeName(String name) {
         return WorkbookUtil.createSafeSheetName(name);
     }
@@ -93,12 +96,18 @@ public class CategoryScheme extends UpdatableImpl {
         return labels != null && labels.size() > 0;
     }
 
+    /**
+     * Returns the list of label schemes in display/order sequence.
+     */
     @JacksonXmlElementWrapper(localName = "labels")
     @JacksonXmlProperty(localName = "label")
     public List<LabelScheme> getLabels() {
         return labels;
     }
 
+    /**
+     * Replaces label schemes in bulk, preserving update semantics.
+     */
     @JacksonXmlElementWrapper(localName = "labels")
     @JacksonXmlProperty(localName = "label")
     public void setLabels(List<LabelScheme> labels) {
@@ -130,16 +139,25 @@ public class CategoryScheme extends UpdatableImpl {
                 .orElse(null);
     }
 
+    /**
+     * Returns the category list definition, if configured.
+     */
     public CategoryListScheme getCategoryList() {
         return categoryList;
     }
 
+    /**
+     * Links a category to an external coding list definition.
+     */
     public CategoryScheme setCategoryList(CategoryListScheme categoryList) {
         this.categoryList = categoryList;
         notifyUpdateListeners(true);
         return this;
     }
 
+    /**
+     * Indicates whether this category uses an external coding list.
+     */
     public boolean hasCategoryList() {
         return categoryList != null && !StringUtils.isBlank(categoryList.getFile());
     }

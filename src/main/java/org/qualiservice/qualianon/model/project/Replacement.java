@@ -60,6 +60,9 @@ public class Replacement extends UpdatableImpl {
         return this;
     }
 
+    /**
+     * Sets the labels once for a new replacement; cannot overwrite existing labels.
+     */
     // Only called on new replacement, so labels is empty before
     public Replacement setLabels(List<Label> labels) {
         if (!this.labels.isEmpty()) throw new IllegalStateException("labels must be empty");
@@ -75,6 +78,9 @@ public class Replacement extends UpdatableImpl {
         notifyUpdateListeners(true);
     }
 
+    /**
+     * Updates this replacement from another instance and rebinds listeners.
+     */
     public void update(Replacement other) {
         unbindLabels(labels);
         categoryScheme = other.getCategoryScheme();
@@ -83,6 +89,9 @@ public class Replacement extends UpdatableImpl {
         notifyUpdateListeners(true);
     }
 
+    /**
+     * Binds label listeners to track changes and keep label text cache updated.
+     */
     private void bindLabels(List<Label> labels) {
         labels.forEach(label -> {
             label.addUpdateListener(updateListener);
@@ -100,6 +109,9 @@ public class Replacement extends UpdatableImpl {
         });
     }
 
+    /**
+     * Removes label listeners when labels are detached or replaced.
+     */
     private void unbindLabels(List<Label> labels) {
         labels.forEach(label -> {
             label.removeUpdateListener(updateListener);
@@ -117,6 +129,9 @@ public class Replacement extends UpdatableImpl {
         return labels;
     }
 
+    /**
+     * Returns labels formatted as a multi-line block for display.
+     */
     public String getLabelsTextBlock() {
         return getLabelsString("\n");
     }
@@ -125,6 +140,9 @@ public class Replacement extends UpdatableImpl {
         return labelsTextBlock;
     }
 
+    /**
+     * Returns labels formatted as a single-line summary.
+     */
     public String getLabelsTextLine() {
         return getLabelsString(", ");
     }

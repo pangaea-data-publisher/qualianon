@@ -48,6 +48,9 @@ public class MarkerStorage {
         return this;
     }
 
+    /**
+     * Returns the placeholder code used inside anonymized text for this marker.
+     */
     @Transient
     public String getCode() {
         return Codes.marker(id);

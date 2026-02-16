@@ -29,6 +29,9 @@ public class MarkerRuntime {
         id = UUID.randomUUID();
     }
 
+    /**
+     * Enforces a max-length constraint to avoid oversized marker ranges.
+     */
     public static void validateSelectionRange(PositionRange positionRange) {
         if (positionRange.length() > CHARACTER_LIMIT) {
             throw new RuntimeException("Marker is too long (" + positionRange.length() + " characters). Limit is " + CHARACTER_LIMIT);
@@ -73,6 +76,9 @@ public class MarkerRuntime {
         return Codes.marker(id);
     }
 
+    /**
+     * Builds the bracketed export string based on anonymization profile rules.
+     */
     public String getExport(AnonymizationProfile anonymizationProfile, ReplacementCounter replacementCounter) {
         final CategoryProfile categoryProfile = anonymizationProfile.getCategoryProfile(
                 replacement.getCategoryScheme()

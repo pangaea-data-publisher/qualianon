@@ -31,6 +31,9 @@ public class LabelProfile {
         return this;
     }
 
+    /**
+     * Indicates whether this label is included in export output.
+     */
     @JacksonXmlProperty
     public boolean isEnabled() {
         return enabled.isValue();
@@ -47,6 +50,9 @@ public class LabelProfile {
         return enabled;
     }
 
+    /**
+     * Marks the enabled flag as persisted after saving.
+     */
     public void setPersisted() {
         enabled.setPersisted();
     }

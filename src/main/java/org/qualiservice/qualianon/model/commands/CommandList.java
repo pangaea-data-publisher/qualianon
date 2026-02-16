@@ -27,6 +27,9 @@ public class CommandList {
         listeners.remove(listener);
     }
 
+    /**
+     * Executes a command and adds it to the undo stack if successful.
+     */
     public void runCommand(Command command) {
         try {
             final boolean success = command.run();
@@ -47,6 +50,9 @@ public class CommandList {
         notifyListeners();
     }
 
+    /**
+     * Undoes the last executed command and updates listeners.
+     */
     public void undo() {
         if (pointer == 0) throw new NoSuchElementException();
         pointer--;
@@ -57,6 +63,9 @@ public class CommandList {
         notifyListeners();
     }
 
+    /**
+     * Redoes the next command in the history, if available.
+     */
     public void redo() {
         if (pointer >= commands.size()) throw new NoSuchElementException();
         final boolean success = commands.get(pointer).run();
@@ -67,11 +76,17 @@ public class CommandList {
         notifyListeners();
     }
 
+    /**
+     * Clears command history on unrecoverable errors.
+     */
     private void clearCommandList() {
         commands.clear();
         pointer = 0;
     }
 
+    /**
+     * Notifies listeners about current undo/redo availability.
+     */
     private void notifyListeners() {
         listeners.forEach(listener -> {
             boolean undoEnabled = false;
