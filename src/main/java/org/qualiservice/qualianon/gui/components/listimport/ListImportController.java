@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import org.qualiservice.qualianon.utility.YJFileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -95,7 +96,7 @@ public class ListImportController implements Initializable {
         actionEvent.consume();
         final ImportSettings importSettings = typeList.getSelectionModel().getSelectedItem();
 
-        final FileChooser fileChooser = new FileChooser();
+        final FileChooser fileChooser = new YJFileChooser();
         fileChooser.setTitle("Import " + importSettings.getTitle());
         fileChooser.getExtensionFilters().addAll(importSettings.getExtensionFilter());
         file = fileChooser.showOpenDialog(stage);
