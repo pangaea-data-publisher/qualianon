@@ -11,6 +11,7 @@ If you have any questions regarding the use of QualiAnon for your research proje
 ## Documentation
 
 * User manual: https://docs.google.com/document/d/1fLLYvsgXjh_p9p_E1fhikkIPQb19VUiltbRgaWQoD-M/edit?usp=sharing
+* Access our video tutorial on QualiAnon here: https://www.youtube.com/watch?v=RYQn4DjdKmo
 
 ## Installation + Requirements
 [Wiki - Installation instructions](https://github.com/pangaea-data-publisher/qualianon/wiki/Installation-Instructions)
