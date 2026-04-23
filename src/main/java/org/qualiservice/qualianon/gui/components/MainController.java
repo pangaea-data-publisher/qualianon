@@ -307,7 +307,7 @@ public class MainController implements Initializable, UIInterface {
     public void onOpenProjectAction(ActionEvent actionEvent) throws IOException {
         actionEvent.consume();
 
-        final DirectoryChooser directoryChooser = new DirectoryChooser();
+        final DirectoryChooser directoryChooser = new YJDirectoryChooser();
         directoryChooser.setTitle("Select Project Folder");
 
         final File directory = directoryChooser.showDialog(stage.getOwner());
@@ -373,7 +373,7 @@ public class MainController implements Initializable, UIInterface {
     public void onImportAction(ActionEvent actionEvent) {
         actionEvent.consume();
 
-        final FileChooser fileChooser = new FileChooser();
+        final FileChooser fileChooser = new YJFileChooser();
         fileChooser.setTitle("Import Document(s)");
         final List<String> extensions = Collections.singletonList("*.docx");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("docx-files", extensions));
